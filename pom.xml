@@ -19,6 +19,12 @@
     <packaging>atlassian-plugin</packaging>
 
     <dependencies>
+        <!-- Conveyor Dependencies -->
+        <dependency>
+            <groupId>org.randombits.confluence</groupId>
+            <artifactId>confluence-conveyor</artifactId>
+            <version>0.5.0</version>
+        </dependency>
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>

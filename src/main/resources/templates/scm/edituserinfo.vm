@@ -1,0 +1,55 @@
+#requireResourcesForContext("userinfo-plugin")
+<html>
+  <head>
+    <title>$action.getText("title.edit.my.profile")</title>
+  </head>
+
+  #applyDecorator("root")
+     #decoratorParam("context" "profile")
+     #decoratorParam("mode"  "edit-profile")
+     #decoratorParam("helper" $action.helper)
+     #decoratorParam("infopanel-width" "200px")
+
+    <body>
+      ##<link rel="stylesheet" href="$req.contextPath/download/resources/com.atlassian.confluence.extra.userinfo:userinfo/files/userinfo.css" type="text/css" />
+      ##<style type="text/css">
+      ##  .greyBox .header, .greyBox .addressheader { font-size: 15px; line-height:1.3; padding:5px 2px; border-bottom: 1px solid #DDDDDD; padding-bottom:0px;}
+      ##  .greyBox .addressheader {padding-left:25px;}
+      ##  .greyBox td { padding:3px 5px; }
+      ##</style>
+      <div class="thickPadded">
+
+		##<table width="100%">
+		##	<tr>
+		##		<td>
+		##		#parse ( "/template/includes/actionmessages.vm" )
+	    ##  	  	#parse ( "/template/includes/actionerrors.vm" )
+		##		</td>
+		##	</tr>
+		##</table>
+
+        <form class="aui" name="doedituserinfo" method="POST" action="doedituserinfo.action" enctype="multipart/form-data">
+       
+      	 <table class="greyBox profile-edit" width="100%" cellpadding="0" cellspacing="" border="0">
+      	 
+        	#foreach($field in $fieldSet.allFields)
+	        	#parse ( "/templates/extra/userinfo/user/fielderrors.vm" )
+		 	    $field.getEditTableRows( $user )
+			#end
+			
+			<tr>
+              <td colspan="2" align="center">
+                <br/>
+                #tag( Submit "name='save'"   "value='userInfo.button.save'"  "theme='notable'" )
+                #tag( Submit "name='cancel'" "value='userInfo.button.cancel'" "theme='notable'" )
+              </td>
+            </tr>		
+        	</table>
+        </form>
+       this is profile
+
+      </div>
+      	   	
+    </body>
+  #end
+</html>

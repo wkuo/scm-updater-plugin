@@ -4,9 +4,10 @@
         <version>${project.version}</version>
         <vendor name="${project.organization.name}" url="${project.organization.url}" />
     </plugin-info>
-
-    <macro name="scm-updater-plugin" class="com.atex.confluence.plugin.ExampleMacro" key="my-macro">
-    <!-- TODO: Add macro description -->
-    <!-- <description></description> -->
-    </macro>
+    
+    <!-- Conveyor Injected Actions-->
+    <listener name='Profile Conveyor Listener' class='com.atex.confluence.plugin.scm.conveyor.ProfileConveyorListener' key='profileConveyorListener'>
+        <description>Replaces the default profile related actions with the User Information version which allows updating and viewing of the Custom Fields configured within this plugin.</description>
+    </listener>
+    
 </atlassian-plugin>

@@ -1,4 +1,4 @@
-package com.atex.confluence.plugin.conveyor;
+package com.atex.confluence.plugin.scm.conveyor;
 
 import org.randombits.confluence.conveyor.ConveyorListener;
 import org.randombits.confluence.conveyor.config.ConveyorConfigurationProvider;

@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+
+<conveyor-config>
+
+    <!--
+      Overrides the default user profile actions to display more information regarding
+      the user based on the custom fields configured within the plugin.
+      Replaces the editing profile action for the same purpose.
+      Adds the a new "doedituserinfo" action which handles the submission and update
+      the information accordingly
+    -->
+    <package-override name="users" namespace="/users">
+        <!-- Override the original view user profile action. -->
+
+        <!-- Override the original edit user profile action. -->
+        <action-override name="editmyprofile" class="com.atex.confluence.plugin.scm.action.EditUserInfoAction" method="doDefault">
+            <result name="input" type="velocity">/templates/scm/edituserinfo.vm</result>
+            <result name="cancel" type="redirect">/users/viewmyprofile.action</result>
+        </action-override>
+
+        <!-- Provide an extra 'doedituserinfo' action. -->
+        <action name="doedituserinfo" class="com.atex.confluence.plugin.scm.action.EditUserInfoAction">
+            <result name="input" type="velocity">/templates/scm/edituserinfo.vm</result>
+            <result name="error" type="velocity">/templates/scm/edituserinfo.vm</result>
+            <result name="success" type="redirect">/users/viewmyprofile.action?result=success</result>
+            <result name="cancel" type="redirect">/users/viewmyprofile.action</result>
+        </action>
+    </package-override>
+
+</conveyor-config>

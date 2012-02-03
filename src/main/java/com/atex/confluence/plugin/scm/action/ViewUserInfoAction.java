@@ -1,4 +1,4 @@
-package com.atex.confluence.plugin.action;
+package com.atex.confluence.plugin.scm.action;
 
 import com.atlassian.confluence.user.actions.ViewUserProfileAction;
 

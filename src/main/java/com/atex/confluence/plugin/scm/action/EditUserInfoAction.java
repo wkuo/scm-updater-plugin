@@ -1,4 +1,4 @@
-package com.atex.confluence.plugin.action;
+package com.atex.confluence.plugin.scm.action;
 
 
 import javax.servlet.http.HttpServletRequest;
@@ -66,10 +66,6 @@ public class EditUserInfoAction extends EditMyProfileAction {
             return CANCEL;
         }
 
-        // For each of the custom fields, check if the value has been set as a
-        // parameter on the action, if so set the custom field value (this will
-        // also cause any validation to happen if the custom field validates
-        // input.)
         HttpServletRequest req = ServletActionContext.getRequest();
 
         if ( hasActionErrors() || hasFieldErrors() ) {
